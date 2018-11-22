@@ -1,0 +1,25 @@
+sudo: reguired
+
+services:
+        - docker
+
+before_install:
+        - docker build -t falkobenthin/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+        - docker run falkobenthin/react-test npm test -- --coverage
+
+after_success:
+        - docker build -t falkobenthin/multi-client ./client
+        - docker build -t falkobenthin/multi-nginx ./nginx
+        - docker build -t falkobenthin/multi-server ./server
+        - docker build -t falkobenthin/multi-worker ./worker
+
+        # Log in to the docker CLI
+        - echo "$MY_DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+        # take those images and push them up to docker hub
+        - docker push falkobenthin/multi-client
+        #        - docker push falkobenthin/multi-nginx
+        #        - docker push falkobenthin/multi-server
+        - docker push falkobenthin/multi-worker
+
