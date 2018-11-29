@@ -2,7 +2,7 @@
 
 docker build -t falkobenthin/multi-client:latest -t falkobenthin/multi-client:$GIT_SHA -f ./client/Dockerfile ./client
 docker build -t falkobenthin/multi-server:latest -t falkobenthin/multi-server:$GIT_SHA -f ./server/Dockerfile ./server
-docker build -t falkobenthin/multi-worker:latest -t falkobenthin/multi-worker:$GIT_SHA -f ./server/Dockerfile ./worker
+docker build -t falkobenthin/multi-worker:latest -t falkobenthin/multi-worker:$GIT_SHA -f ./worker/Dockerfile ./worker
 
 docker push falkobenthin/multi-client:latest
 docker push falkobenthin/multi-server:latest
