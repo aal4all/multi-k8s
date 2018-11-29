@@ -17,3 +17,4 @@ kubectl set image deployments/server-deployment server=falkobenthin/multi-server
 kubectl set image deployments/client-deployment client=falkobenthin/multi-client:$GIT_SHA
 kubectl set image deployments/worker-deployment worker=falkobenthin/multi-worker:$GIT_SHA
 
+exit 0
