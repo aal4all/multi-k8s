@@ -12,7 +12,7 @@ docker push falkobenthin/multi-client:$GIT_SHA
 docker push falkobenthin/multi-server:$GIT_SHA
 docker push falkobenthin/multi-worker:$GIT_SHA
 
-kubectl apply -f k8s
+kubectl apply -f k8s/*
 kubectl set image deployments/server-deployment server=falkobenthin/multi-server:$GIT_SHA
 kubectl set image deployments/client-deployment client=falkobenthin/multi-client:$GIT_SHA
 kubectl set image deployments/worker-deployment worker=falkobenthin/multi-worker:$GIT_SHA
