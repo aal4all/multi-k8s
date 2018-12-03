@@ -10,13 +10,10 @@ spec:
   commonName: kubernetes-playground.schul-cloud.org
   dnsNames:
     - kubernetes-playground.schul-cloud.org
-    - www.kubernetes-playground.schul-cloud.org
   acme:
     config:
       - http01:
           ingressClass: nginx
         domains:
           - kubernetes-playground.schul-cloud.org
-          - www.kubernetes-playground.schul-cloud.org
-
 
