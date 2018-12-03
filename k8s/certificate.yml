@@ -1,0 +1,22 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata: 
+  name: kubernetes-playground-schul-cloud-org-tls
+spec:
+  secretName: kubernetes-playground-schul-cloud-org
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: kubernetes-playground.schul-cloud.org
+  dnsNames:
+    - kubernetes-playground.schul-cloud.org
+    - www.kubernetes-playground.schul-cloud.org
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - kubernetes-playground.schul-cloud.org
+          - www.kubernetes-playground.schul-cloud.org
+
+
